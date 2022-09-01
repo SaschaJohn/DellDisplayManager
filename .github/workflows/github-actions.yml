@@ -46,7 +46,6 @@ jobs:
         run:  |
           export EXEVERSION=`peres -v app/ddm.exe | awk '{print $3}' | tail -1`
           echo "EXEVERSION=$EXEVERSION" >> $GITHUB_ENV
-          export EXEVERSION=1.1
           if wget -q --method=HEAD https://github.com/SaschaJohn/DellDisplayManager/releases/tag/$EXEVERSION;
           then
             echo "This page exists."
