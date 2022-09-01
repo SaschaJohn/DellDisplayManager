@@ -45,12 +45,12 @@ jobs:
       - name: Get Version
         run:  |
           export EXEVERSION=`peres -v app/ddm.exe | awk '{print $3}' | tail -1`
-          echo "::set-env name=EXEVERSION::$EXEVERSION"
+          echo "EXEVERSION=$EXEVERSION" >> $GITHUB_ENV
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: $EXEVERSION
+          tag_name: { env.EXEVERSION }
           files: ./app/ddm.exe
       
       # Runs a set of commands using the runners shell
