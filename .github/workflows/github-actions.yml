@@ -43,7 +43,7 @@ jobs:
         run: ls -al ./app
 
       - name: Get Version
-        run: export exeversion = peres -v app/ddm.exe | awk '{print $3}'; echo $exeversion
+        run:  exeversion=`peres -v app/ddm.exe | awk '{print $3}'`; echo $exeversion
       
       # Runs a set of commands using the runners shell
       - uses: actions/upload-artifact@v2
