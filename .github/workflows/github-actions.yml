@@ -30,7 +30,7 @@ jobs:
         run: apt update
 
       - name: Install packages
-        run: apt install pev innoextract -y
+        run: apt install wget pev innoextract -y
 
       - name: Get executable
         run: wget https://www.delldisplaymanager.com/ddmsetup.exe
