@@ -46,6 +46,13 @@ jobs:
         run:  |
           export EXEVERSION=`peres -v app/ddm.exe | awk '{print $3}' | tail -1`
           echo "EXEVERSION=$EXEVERSION" >> $GITHUB_ENV
+          if wget -q --method=HEAD https://github.com/SaschaJohn/DellDisplayManager/releases/tag/$EXEVERSION;
+          then
+            echo "This page exists."
+            exit 1
+          else
+            echo "This page does not exist."
+          fi
 
       - name: Release
         uses: softprops/action-gh-release@v1
