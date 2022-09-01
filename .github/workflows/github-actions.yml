@@ -49,7 +49,7 @@ jobs:
             exit 1
           else
             echo "This page does not exist."
-            echo "{ version: \"$EXEVERSION\", url: \"https://github.com/SaschaJohn/DellDisplayManager/releases/download/$EXEVERSION/ddm.exe\", bin: \"ddm.exe\" }" > ddm.json
+            echo "{ \"version\": \"$EXEVERSION\", \"url\": \"https://github.com/SaschaJohn/DellDisplayManager/releases/download/$EXEVERSION/ddm.exe\", \"bin\": \"ddm.exe\" }" > ddm.json
           fi
 
       - name: Release
@@ -64,9 +64,3 @@ jobs:
           file-path: ddm.json
           commit-msg: Update version
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      
-      # Runs a set of commands using the runners shell
-      - uses: actions/upload-artifact@v2
-        with:
-         name: ddm
-         path: ./app/ddm.exe
