@@ -44,7 +44,7 @@ jobs:
 
       - name: Get Version
         run:  |
-          export EXEVERSION=`peres -v app/ddm.exe | awk '{print $3}'`
+          export EXEVERSION=`peres -v app/ddm.exe | awk '{print $3}' | tail -1`
           echo "::set-env name=EXEVERSION::$EXEVERSION"
 
       - name: Release
