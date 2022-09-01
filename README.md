@@ -1,6 +1,6 @@
 This repo contains a workflow to download the current DellDisplayManager and a scoop bucket definition for the same.
 The workflow runs each day at 2:30 UTC.
-It runs as a docker build on ubuntu:latest and add the necessary binaries via apt to the base image.
+It runs as a docker build on ubuntu:latest and adds the necessary binaries via apt to the base image.
 The workflow downloads the latest binary from the homepage via wget.
 The binary gets extracted via innoextract. 
 The version string is determined from the downloaded executable via peres.
